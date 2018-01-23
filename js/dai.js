@@ -14,7 +14,11 @@ const dai = function (profile, ida) {
     }
 
     for (var i = 0; i < profile.df_list.length; i++) {
-        df_name = profile.df_list[i].name.replace(/_/g, '-')
+        df_name = profile.df_list[i].name;
+        if(df_name[df_name.length-2] == '_'){
+            df_name = df_name.substr(0, df_name.length-2) + '-' + df_name.substr(df_name.length-1);
+        }
+        // df_name = profile.df_list[i].name.replace(/_/g, '-')
         df_func[df_name] = profile.df_list[i];
         profile.df_list[i] = df_name;
         console.log(df_name);
