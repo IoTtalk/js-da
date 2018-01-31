@@ -149,6 +149,8 @@ var dan = (function () {
     }
 
     function push (idf_name, data, callback) {
+		if(!Array.isArray(data))
+			data = [data];
         if (idf_name == 'Control') {
             idf_name = '__Ctl_I__';
         }
